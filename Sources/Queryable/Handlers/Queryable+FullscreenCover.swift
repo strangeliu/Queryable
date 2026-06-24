@@ -22,6 +22,7 @@
 
 import SwiftUI
 
+@available(macOS, unavailable)
 private struct FullScreenCoverModifier<Item, Result, QueryContent: View>: ViewModifier {
     @ObservedObject private var queryable: Queryable<Item, Result>
     private var onDismiss: (() -> Void)?
@@ -52,6 +53,7 @@ private struct FullScreenCoverModifier<Item, Result, QueryContent: View>: ViewMo
 
 public extension View {
 
+    @available(macOS, unavailable)
     @MainActor
     func queryableFullScreenCover<Item, Result, Content: View>(
         controlledBy queryable: Queryable<Item, Result>,
@@ -61,6 +63,7 @@ public extension View {
         modifier(FullScreenCoverModifier(controlledBy: queryable, onDismiss: onDismiss, queryContent: content))
     }
 
+    @available(macOS, unavailable)
     @MainActor
     func queryableFullScreenCover<Result, Content: View>(
         controlledBy queryable: Queryable<Void, Result>,
